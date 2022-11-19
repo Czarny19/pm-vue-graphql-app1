@@ -1,0 +1,1885 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: query_root
+    mutation: mutation_root
+    subscription: subscription_root
+}
+
+"whether this query should be cached (Hasura Cloud only)"
+directive @cached(
+    "refresh the cache entry"
+    refresh: Boolean! = false,
+    "measured in seconds"
+    ttl: Int! = 60
+) on QUERY
+
+"Wizyty"
+type Med_Appointments {
+    date: date!
+    "An object relationship"
+    doctor: Med_Doctor
+    doctor_id: bigint!
+    id: bigint!
+    "An object relationship"
+    location: Med_Location
+    location_id: bigint!
+    "An array relationship"
+    reservations(
+        "distinct select on columns"
+        distinct_on: [Med_Reservation_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Reservation_order_by!],
+        "filter the rows returned"
+        where: Med_Reservation_bool_exp
+    ): [Med_Reservation!]!
+    "An aggregate relationship"
+    reservations_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Reservation_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Reservation_order_by!],
+        "filter the rows returned"
+        where: Med_Reservation_bool_exp
+    ): Med_Reservation_aggregate!
+}
+
+"aggregated selection of \"Med_Appointments\""
+type Med_Appointments_aggregate {
+    aggregate: Med_Appointments_aggregate_fields
+    nodes: [Med_Appointments!]!
+}
+
+"aggregate fields of \"Med_Appointments\""
+type Med_Appointments_aggregate_fields {
+    avg: Med_Appointments_avg_fields
+    count(columns: [Med_Appointments_select_column!], distinct: Boolean): Int!
+    max: Med_Appointments_max_fields
+    min: Med_Appointments_min_fields
+    stddev: Med_Appointments_stddev_fields
+    stddev_pop: Med_Appointments_stddev_pop_fields
+    stddev_samp: Med_Appointments_stddev_samp_fields
+    sum: Med_Appointments_sum_fields
+    var_pop: Med_Appointments_var_pop_fields
+    var_samp: Med_Appointments_var_samp_fields
+    variance: Med_Appointments_variance_fields
+}
+
+"aggregate avg on columns"
+type Med_Appointments_avg_fields {
+    doctor_id: Float
+    id: Float
+    location_id: Float
+}
+
+"aggregate max on columns"
+type Med_Appointments_max_fields {
+    date: date
+    doctor_id: bigint
+    id: bigint
+    location_id: bigint
+}
+
+"aggregate min on columns"
+type Med_Appointments_min_fields {
+    date: date
+    doctor_id: bigint
+    id: bigint
+    location_id: bigint
+}
+
+"response of any mutation on the table \"Med_Appointments\""
+type Med_Appointments_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [Med_Appointments!]!
+}
+
+"aggregate stddev on columns"
+type Med_Appointments_stddev_fields {
+    doctor_id: Float
+    id: Float
+    location_id: Float
+}
+
+"aggregate stddev_pop on columns"
+type Med_Appointments_stddev_pop_fields {
+    doctor_id: Float
+    id: Float
+    location_id: Float
+}
+
+"aggregate stddev_samp on columns"
+type Med_Appointments_stddev_samp_fields {
+    doctor_id: Float
+    id: Float
+    location_id: Float
+}
+
+"aggregate sum on columns"
+type Med_Appointments_sum_fields {
+    doctor_id: bigint
+    id: bigint
+    location_id: bigint
+}
+
+"aggregate var_pop on columns"
+type Med_Appointments_var_pop_fields {
+    doctor_id: Float
+    id: Float
+    location_id: Float
+}
+
+"aggregate var_samp on columns"
+type Med_Appointments_var_samp_fields {
+    doctor_id: Float
+    id: Float
+    location_id: Float
+}
+
+"aggregate variance on columns"
+type Med_Appointments_variance_fields {
+    doctor_id: Float
+    id: Float
+    location_id: Float
+}
+
+"Lekarze"
+type Med_Doctor {
+    friday_hours: String
+    friday_location: String
+    id: bigint!
+    monday_hours: String
+    monday_location: String
+    name: String!
+    specialization: String!
+    thursday_hours: String
+    thursday_location: String
+    tuesday_hours: String
+    tuesday_location: String
+    wednesday_hours: String
+    wednesday_location: String
+}
+
+"aggregated selection of \"Med_Doctor\""
+type Med_Doctor_aggregate {
+    aggregate: Med_Doctor_aggregate_fields
+    nodes: [Med_Doctor!]!
+}
+
+"aggregate fields of \"Med_Doctor\""
+type Med_Doctor_aggregate_fields {
+    avg: Med_Doctor_avg_fields
+    count(columns: [Med_Doctor_select_column!], distinct: Boolean): Int!
+    max: Med_Doctor_max_fields
+    min: Med_Doctor_min_fields
+    stddev: Med_Doctor_stddev_fields
+    stddev_pop: Med_Doctor_stddev_pop_fields
+    stddev_samp: Med_Doctor_stddev_samp_fields
+    sum: Med_Doctor_sum_fields
+    var_pop: Med_Doctor_var_pop_fields
+    var_samp: Med_Doctor_var_samp_fields
+    variance: Med_Doctor_variance_fields
+}
+
+"aggregate avg on columns"
+type Med_Doctor_avg_fields {
+    id: Float
+}
+
+"aggregate max on columns"
+type Med_Doctor_max_fields {
+    friday_hours: String
+    friday_location: String
+    id: bigint
+    monday_hours: String
+    monday_location: String
+    name: String
+    specialization: String
+    thursday_hours: String
+    thursday_location: String
+    tuesday_hours: String
+    tuesday_location: String
+    wednesday_hours: String
+    wednesday_location: String
+}
+
+"aggregate min on columns"
+type Med_Doctor_min_fields {
+    friday_hours: String
+    friday_location: String
+    id: bigint
+    monday_hours: String
+    monday_location: String
+    name: String
+    specialization: String
+    thursday_hours: String
+    thursday_location: String
+    tuesday_hours: String
+    tuesday_location: String
+    wednesday_hours: String
+    wednesday_location: String
+}
+
+"response of any mutation on the table \"Med_Doctor\""
+type Med_Doctor_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [Med_Doctor!]!
+}
+
+"aggregate stddev on columns"
+type Med_Doctor_stddev_fields {
+    id: Float
+}
+
+"aggregate stddev_pop on columns"
+type Med_Doctor_stddev_pop_fields {
+    id: Float
+}
+
+"aggregate stddev_samp on columns"
+type Med_Doctor_stddev_samp_fields {
+    id: Float
+}
+
+"aggregate sum on columns"
+type Med_Doctor_sum_fields {
+    id: bigint
+}
+
+"aggregate var_pop on columns"
+type Med_Doctor_var_pop_fields {
+    id: Float
+}
+
+"aggregate var_samp on columns"
+type Med_Doctor_var_samp_fields {
+    id: Float
+}
+
+"aggregate variance on columns"
+type Med_Doctor_variance_fields {
+    id: Float
+}
+
+"Placówki medyczne"
+type Med_Location {
+    address_line_1: String!
+    address_line_2: String!
+    description: String
+    id: bigint!
+    name: String!
+    phone_number: String!
+}
+
+"aggregated selection of \"Med_Location\""
+type Med_Location_aggregate {
+    aggregate: Med_Location_aggregate_fields
+    nodes: [Med_Location!]!
+}
+
+"aggregate fields of \"Med_Location\""
+type Med_Location_aggregate_fields {
+    avg: Med_Location_avg_fields
+    count(columns: [Med_Location_select_column!], distinct: Boolean): Int!
+    max: Med_Location_max_fields
+    min: Med_Location_min_fields
+    stddev: Med_Location_stddev_fields
+    stddev_pop: Med_Location_stddev_pop_fields
+    stddev_samp: Med_Location_stddev_samp_fields
+    sum: Med_Location_sum_fields
+    var_pop: Med_Location_var_pop_fields
+    var_samp: Med_Location_var_samp_fields
+    variance: Med_Location_variance_fields
+}
+
+"aggregate avg on columns"
+type Med_Location_avg_fields {
+    id: Float
+}
+
+"aggregate max on columns"
+type Med_Location_max_fields {
+    address_line_1: String
+    address_line_2: String
+    description: String
+    id: bigint
+    name: String
+    phone_number: String
+}
+
+"aggregate min on columns"
+type Med_Location_min_fields {
+    address_line_1: String
+    address_line_2: String
+    description: String
+    id: bigint
+    name: String
+    phone_number: String
+}
+
+"response of any mutation on the table \"Med_Location\""
+type Med_Location_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [Med_Location!]!
+}
+
+"aggregate stddev on columns"
+type Med_Location_stddev_fields {
+    id: Float
+}
+
+"aggregate stddev_pop on columns"
+type Med_Location_stddev_pop_fields {
+    id: Float
+}
+
+"aggregate stddev_samp on columns"
+type Med_Location_stddev_samp_fields {
+    id: Float
+}
+
+"aggregate sum on columns"
+type Med_Location_sum_fields {
+    id: bigint
+}
+
+"aggregate var_pop on columns"
+type Med_Location_var_pop_fields {
+    id: Float
+}
+
+"aggregate var_samp on columns"
+type Med_Location_var_samp_fields {
+    id: Float
+}
+
+"aggregate variance on columns"
+type Med_Location_variance_fields {
+    id: Float
+}
+
+"Strony"
+type Med_Pages {
+    bg_color: String
+    description: String!
+    id: bigint!
+    img_link: String
+    name: String!
+    order: Int
+    text_color: String
+}
+
+"aggregated selection of \"Med_Pages\""
+type Med_Pages_aggregate {
+    aggregate: Med_Pages_aggregate_fields
+    nodes: [Med_Pages!]!
+}
+
+"aggregate fields of \"Med_Pages\""
+type Med_Pages_aggregate_fields {
+    avg: Med_Pages_avg_fields
+    count(columns: [Med_Pages_select_column!], distinct: Boolean): Int!
+    max: Med_Pages_max_fields
+    min: Med_Pages_min_fields
+    stddev: Med_Pages_stddev_fields
+    stddev_pop: Med_Pages_stddev_pop_fields
+    stddev_samp: Med_Pages_stddev_samp_fields
+    sum: Med_Pages_sum_fields
+    var_pop: Med_Pages_var_pop_fields
+    var_samp: Med_Pages_var_samp_fields
+    variance: Med_Pages_variance_fields
+}
+
+"aggregate avg on columns"
+type Med_Pages_avg_fields {
+    id: Float
+    order: Float
+}
+
+"aggregate max on columns"
+type Med_Pages_max_fields {
+    bg_color: String
+    description: String
+    id: bigint
+    img_link: String
+    name: String
+    order: Int
+    text_color: String
+}
+
+"aggregate min on columns"
+type Med_Pages_min_fields {
+    bg_color: String
+    description: String
+    id: bigint
+    img_link: String
+    name: String
+    order: Int
+    text_color: String
+}
+
+"response of any mutation on the table \"Med_Pages\""
+type Med_Pages_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [Med_Pages!]!
+}
+
+"aggregate stddev on columns"
+type Med_Pages_stddev_fields {
+    id: Float
+    order: Float
+}
+
+"aggregate stddev_pop on columns"
+type Med_Pages_stddev_pop_fields {
+    id: Float
+    order: Float
+}
+
+"aggregate stddev_samp on columns"
+type Med_Pages_stddev_samp_fields {
+    id: Float
+    order: Float
+}
+
+"aggregate sum on columns"
+type Med_Pages_sum_fields {
+    id: bigint
+    order: Int
+}
+
+"aggregate var_pop on columns"
+type Med_Pages_var_pop_fields {
+    id: Float
+    order: Float
+}
+
+"aggregate var_samp on columns"
+type Med_Pages_var_samp_fields {
+    id: Float
+    order: Float
+}
+
+"aggregate variance on columns"
+type Med_Pages_variance_fields {
+    id: Float
+    order: Float
+}
+
+"Rezerwacje wizyt"
+type Med_Reservation {
+    appointment_id: bigint!
+    couse: String
+    hour: String
+    id: bigint!
+    is_reserved: Boolean
+    name: String
+    patient_email: String
+    patient_phone_num: String
+    surname: String
+}
+
+"aggregated selection of \"Med_Reservation\""
+type Med_Reservation_aggregate {
+    aggregate: Med_Reservation_aggregate_fields
+    nodes: [Med_Reservation!]!
+}
+
+"aggregate fields of \"Med_Reservation\""
+type Med_Reservation_aggregate_fields {
+    avg: Med_Reservation_avg_fields
+    count(columns: [Med_Reservation_select_column!], distinct: Boolean): Int!
+    max: Med_Reservation_max_fields
+    min: Med_Reservation_min_fields
+    stddev: Med_Reservation_stddev_fields
+    stddev_pop: Med_Reservation_stddev_pop_fields
+    stddev_samp: Med_Reservation_stddev_samp_fields
+    sum: Med_Reservation_sum_fields
+    var_pop: Med_Reservation_var_pop_fields
+    var_samp: Med_Reservation_var_samp_fields
+    variance: Med_Reservation_variance_fields
+}
+
+"aggregate avg on columns"
+type Med_Reservation_avg_fields {
+    appointment_id: Float
+    id: Float
+}
+
+"aggregate max on columns"
+type Med_Reservation_max_fields {
+    appointment_id: bigint
+    couse: String
+    hour: String
+    id: bigint
+    name: String
+    patient_email: String
+    patient_phone_num: String
+    surname: String
+}
+
+"aggregate min on columns"
+type Med_Reservation_min_fields {
+    appointment_id: bigint
+    couse: String
+    hour: String
+    id: bigint
+    name: String
+    patient_email: String
+    patient_phone_num: String
+    surname: String
+}
+
+"response of any mutation on the table \"Med_Reservation\""
+type Med_Reservation_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [Med_Reservation!]!
+}
+
+"aggregate stddev on columns"
+type Med_Reservation_stddev_fields {
+    appointment_id: Float
+    id: Float
+}
+
+"aggregate stddev_pop on columns"
+type Med_Reservation_stddev_pop_fields {
+    appointment_id: Float
+    id: Float
+}
+
+"aggregate stddev_samp on columns"
+type Med_Reservation_stddev_samp_fields {
+    appointment_id: Float
+    id: Float
+}
+
+"aggregate sum on columns"
+type Med_Reservation_sum_fields {
+    appointment_id: bigint
+    id: bigint
+}
+
+"aggregate var_pop on columns"
+type Med_Reservation_var_pop_fields {
+    appointment_id: Float
+    id: Float
+}
+
+"aggregate var_samp on columns"
+type Med_Reservation_var_samp_fields {
+    appointment_id: Float
+    id: Float
+}
+
+"aggregate variance on columns"
+type Med_Reservation_variance_fields {
+    appointment_id: Float
+    id: Float
+}
+
+"mutation root"
+type mutation_root {
+    "delete data from the table: \"Med_Appointments\""
+    delete_Med_Appointments(
+        "filter the rows which have to be deleted"
+        where: Med_Appointments_bool_exp!
+    ): Med_Appointments_mutation_response
+    "delete single row from the table: \"Med_Appointments\""
+    delete_Med_Appointments_by_pk(id: bigint!): Med_Appointments
+    "delete data from the table: \"Med_Doctor\""
+    delete_Med_Doctor(
+        "filter the rows which have to be deleted"
+        where: Med_Doctor_bool_exp!
+    ): Med_Doctor_mutation_response
+    "delete single row from the table: \"Med_Doctor\""
+    delete_Med_Doctor_by_pk(id: bigint!): Med_Doctor
+    "delete data from the table: \"Med_Location\""
+    delete_Med_Location(
+        "filter the rows which have to be deleted"
+        where: Med_Location_bool_exp!
+    ): Med_Location_mutation_response
+    "delete single row from the table: \"Med_Location\""
+    delete_Med_Location_by_pk(id: bigint!): Med_Location
+    "delete data from the table: \"Med_Pages\""
+    delete_Med_Pages(
+        "filter the rows which have to be deleted"
+        where: Med_Pages_bool_exp!
+    ): Med_Pages_mutation_response
+    "delete single row from the table: \"Med_Pages\""
+    delete_Med_Pages_by_pk(id: bigint!): Med_Pages
+    "delete data from the table: \"Med_Reservation\""
+    delete_Med_Reservation(
+        "filter the rows which have to be deleted"
+        where: Med_Reservation_bool_exp!
+    ): Med_Reservation_mutation_response
+    "delete single row from the table: \"Med_Reservation\""
+    delete_Med_Reservation_by_pk(id: bigint!): Med_Reservation
+    "insert data into the table: \"Med_Appointments\""
+    insert_Med_Appointments(
+        "the rows to be inserted"
+        objects: [Med_Appointments_insert_input!]!,
+        "upsert condition"
+        on_conflict: Med_Appointments_on_conflict
+    ): Med_Appointments_mutation_response
+    "insert a single row into the table: \"Med_Appointments\""
+    insert_Med_Appointments_one(
+        "the row to be inserted"
+        object: Med_Appointments_insert_input!,
+        "upsert condition"
+        on_conflict: Med_Appointments_on_conflict
+    ): Med_Appointments
+    "insert data into the table: \"Med_Doctor\""
+    insert_Med_Doctor(
+        "the rows to be inserted"
+        objects: [Med_Doctor_insert_input!]!,
+        "upsert condition"
+        on_conflict: Med_Doctor_on_conflict
+    ): Med_Doctor_mutation_response
+    "insert a single row into the table: \"Med_Doctor\""
+    insert_Med_Doctor_one(
+        "the row to be inserted"
+        object: Med_Doctor_insert_input!,
+        "upsert condition"
+        on_conflict: Med_Doctor_on_conflict
+    ): Med_Doctor
+    "insert data into the table: \"Med_Location\""
+    insert_Med_Location(
+        "the rows to be inserted"
+        objects: [Med_Location_insert_input!]!,
+        "upsert condition"
+        on_conflict: Med_Location_on_conflict
+    ): Med_Location_mutation_response
+    "insert a single row into the table: \"Med_Location\""
+    insert_Med_Location_one(
+        "the row to be inserted"
+        object: Med_Location_insert_input!,
+        "upsert condition"
+        on_conflict: Med_Location_on_conflict
+    ): Med_Location
+    "insert data into the table: \"Med_Pages\""
+    insert_Med_Pages(
+        "the rows to be inserted"
+        objects: [Med_Pages_insert_input!]!,
+        "upsert condition"
+        on_conflict: Med_Pages_on_conflict
+    ): Med_Pages_mutation_response
+    "insert a single row into the table: \"Med_Pages\""
+    insert_Med_Pages_one(
+        "the row to be inserted"
+        object: Med_Pages_insert_input!,
+        "upsert condition"
+        on_conflict: Med_Pages_on_conflict
+    ): Med_Pages
+    "insert data into the table: \"Med_Reservation\""
+    insert_Med_Reservation(
+        "the rows to be inserted"
+        objects: [Med_Reservation_insert_input!]!,
+        "upsert condition"
+        on_conflict: Med_Reservation_on_conflict
+    ): Med_Reservation_mutation_response
+    "insert a single row into the table: \"Med_Reservation\""
+    insert_Med_Reservation_one(
+        "the row to be inserted"
+        object: Med_Reservation_insert_input!,
+        "upsert condition"
+        on_conflict: Med_Reservation_on_conflict
+    ): Med_Reservation
+    "update data of the table: \"Med_Appointments\""
+    update_Med_Appointments(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Appointments_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Appointments_set_input,
+        "filter the rows which have to be updated"
+        where: Med_Appointments_bool_exp!
+    ): Med_Appointments_mutation_response
+    "update single row of the table: \"Med_Appointments\""
+    update_Med_Appointments_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Appointments_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Appointments_set_input,
+        pk_columns: Med_Appointments_pk_columns_input!
+    ): Med_Appointments
+    "update data of the table: \"Med_Doctor\""
+    update_Med_Doctor(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Doctor_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Doctor_set_input,
+        "filter the rows which have to be updated"
+        where: Med_Doctor_bool_exp!
+    ): Med_Doctor_mutation_response
+    "update single row of the table: \"Med_Doctor\""
+    update_Med_Doctor_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Doctor_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Doctor_set_input,
+        pk_columns: Med_Doctor_pk_columns_input!
+    ): Med_Doctor
+    "update data of the table: \"Med_Location\""
+    update_Med_Location(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Location_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Location_set_input,
+        "filter the rows which have to be updated"
+        where: Med_Location_bool_exp!
+    ): Med_Location_mutation_response
+    "update single row of the table: \"Med_Location\""
+    update_Med_Location_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Location_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Location_set_input,
+        pk_columns: Med_Location_pk_columns_input!
+    ): Med_Location
+    "update data of the table: \"Med_Pages\""
+    update_Med_Pages(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Pages_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Pages_set_input,
+        "filter the rows which have to be updated"
+        where: Med_Pages_bool_exp!
+    ): Med_Pages_mutation_response
+    "update single row of the table: \"Med_Pages\""
+    update_Med_Pages_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Pages_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Pages_set_input,
+        pk_columns: Med_Pages_pk_columns_input!
+    ): Med_Pages
+    "update data of the table: \"Med_Reservation\""
+    update_Med_Reservation(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Reservation_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Reservation_set_input,
+        "filter the rows which have to be updated"
+        where: Med_Reservation_bool_exp!
+    ): Med_Reservation_mutation_response
+    "update single row of the table: \"Med_Reservation\""
+    update_Med_Reservation_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: Med_Reservation_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Med_Reservation_set_input,
+        pk_columns: Med_Reservation_pk_columns_input!
+    ): Med_Reservation
+}
+
+type query_root {
+    "fetch data from the table: \"Med_Appointments\""
+    Med_Appointments(
+        "distinct select on columns"
+        distinct_on: [Med_Appointments_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Appointments_order_by!],
+        "filter the rows returned"
+        where: Med_Appointments_bool_exp
+    ): [Med_Appointments!]!
+    "fetch aggregated fields from the table: \"Med_Appointments\""
+    Med_Appointments_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Appointments_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Appointments_order_by!],
+        "filter the rows returned"
+        where: Med_Appointments_bool_exp
+    ): Med_Appointments_aggregate!
+    "fetch data from the table: \"Med_Appointments\" using primary key columns"
+    Med_Appointments_by_pk(id: bigint!): Med_Appointments
+    "fetch data from the table: \"Med_Doctor\""
+    Med_Doctor(
+        "distinct select on columns"
+        distinct_on: [Med_Doctor_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Doctor_order_by!],
+        "filter the rows returned"
+        where: Med_Doctor_bool_exp
+    ): [Med_Doctor!]!
+    "fetch aggregated fields from the table: \"Med_Doctor\""
+    Med_Doctor_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Doctor_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Doctor_order_by!],
+        "filter the rows returned"
+        where: Med_Doctor_bool_exp
+    ): Med_Doctor_aggregate!
+    "fetch data from the table: \"Med_Doctor\" using primary key columns"
+    Med_Doctor_by_pk(id: bigint!): Med_Doctor
+    "fetch data from the table: \"Med_Location\""
+    Med_Location(
+        "distinct select on columns"
+        distinct_on: [Med_Location_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Location_order_by!],
+        "filter the rows returned"
+        where: Med_Location_bool_exp
+    ): [Med_Location!]!
+    "fetch aggregated fields from the table: \"Med_Location\""
+    Med_Location_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Location_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Location_order_by!],
+        "filter the rows returned"
+        where: Med_Location_bool_exp
+    ): Med_Location_aggregate!
+    "fetch data from the table: \"Med_Location\" using primary key columns"
+    Med_Location_by_pk(id: bigint!): Med_Location
+    "fetch data from the table: \"Med_Pages\""
+    Med_Pages(
+        "distinct select on columns"
+        distinct_on: [Med_Pages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Pages_order_by!],
+        "filter the rows returned"
+        where: Med_Pages_bool_exp
+    ): [Med_Pages!]!
+    "fetch aggregated fields from the table: \"Med_Pages\""
+    Med_Pages_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Pages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Pages_order_by!],
+        "filter the rows returned"
+        where: Med_Pages_bool_exp
+    ): Med_Pages_aggregate!
+    "fetch data from the table: \"Med_Pages\" using primary key columns"
+    Med_Pages_by_pk(id: bigint!): Med_Pages
+    "fetch data from the table: \"Med_Reservation\""
+    Med_Reservation(
+        "distinct select on columns"
+        distinct_on: [Med_Reservation_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Reservation_order_by!],
+        "filter the rows returned"
+        where: Med_Reservation_bool_exp
+    ): [Med_Reservation!]!
+    "fetch aggregated fields from the table: \"Med_Reservation\""
+    Med_Reservation_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Reservation_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Reservation_order_by!],
+        "filter the rows returned"
+        where: Med_Reservation_bool_exp
+    ): Med_Reservation_aggregate!
+    "fetch data from the table: \"Med_Reservation\" using primary key columns"
+    Med_Reservation_by_pk(id: bigint!): Med_Reservation
+}
+
+type subscription_root {
+    "fetch data from the table: \"Med_Appointments\""
+    Med_Appointments(
+        "distinct select on columns"
+        distinct_on: [Med_Appointments_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Appointments_order_by!],
+        "filter the rows returned"
+        where: Med_Appointments_bool_exp
+    ): [Med_Appointments!]!
+    "fetch aggregated fields from the table: \"Med_Appointments\""
+    Med_Appointments_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Appointments_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Appointments_order_by!],
+        "filter the rows returned"
+        where: Med_Appointments_bool_exp
+    ): Med_Appointments_aggregate!
+    "fetch data from the table: \"Med_Appointments\" using primary key columns"
+    Med_Appointments_by_pk(id: bigint!): Med_Appointments
+    "fetch data from the table: \"Med_Doctor\""
+    Med_Doctor(
+        "distinct select on columns"
+        distinct_on: [Med_Doctor_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Doctor_order_by!],
+        "filter the rows returned"
+        where: Med_Doctor_bool_exp
+    ): [Med_Doctor!]!
+    "fetch aggregated fields from the table: \"Med_Doctor\""
+    Med_Doctor_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Doctor_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Doctor_order_by!],
+        "filter the rows returned"
+        where: Med_Doctor_bool_exp
+    ): Med_Doctor_aggregate!
+    "fetch data from the table: \"Med_Doctor\" using primary key columns"
+    Med_Doctor_by_pk(id: bigint!): Med_Doctor
+    "fetch data from the table: \"Med_Location\""
+    Med_Location(
+        "distinct select on columns"
+        distinct_on: [Med_Location_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Location_order_by!],
+        "filter the rows returned"
+        where: Med_Location_bool_exp
+    ): [Med_Location!]!
+    "fetch aggregated fields from the table: \"Med_Location\""
+    Med_Location_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Location_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Location_order_by!],
+        "filter the rows returned"
+        where: Med_Location_bool_exp
+    ): Med_Location_aggregate!
+    "fetch data from the table: \"Med_Location\" using primary key columns"
+    Med_Location_by_pk(id: bigint!): Med_Location
+    "fetch data from the table: \"Med_Pages\""
+    Med_Pages(
+        "distinct select on columns"
+        distinct_on: [Med_Pages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Pages_order_by!],
+        "filter the rows returned"
+        where: Med_Pages_bool_exp
+    ): [Med_Pages!]!
+    "fetch aggregated fields from the table: \"Med_Pages\""
+    Med_Pages_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Pages_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Pages_order_by!],
+        "filter the rows returned"
+        where: Med_Pages_bool_exp
+    ): Med_Pages_aggregate!
+    "fetch data from the table: \"Med_Pages\" using primary key columns"
+    Med_Pages_by_pk(id: bigint!): Med_Pages
+    "fetch data from the table: \"Med_Reservation\""
+    Med_Reservation(
+        "distinct select on columns"
+        distinct_on: [Med_Reservation_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Reservation_order_by!],
+        "filter the rows returned"
+        where: Med_Reservation_bool_exp
+    ): [Med_Reservation!]!
+    "fetch aggregated fields from the table: \"Med_Reservation\""
+    Med_Reservation_aggregate(
+        "distinct select on columns"
+        distinct_on: [Med_Reservation_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Med_Reservation_order_by!],
+        "filter the rows returned"
+        where: Med_Reservation_bool_exp
+    ): Med_Reservation_aggregate!
+    "fetch data from the table: \"Med_Reservation\" using primary key columns"
+    Med_Reservation_by_pk(id: bigint!): Med_Reservation
+}
+
+"unique or primary key constraints on table \"Med_Appointments\""
+enum Med_Appointments_constraint {
+    "unique or primary key constraint on columns \"id\""
+    Med_Appointments_pkey
+}
+
+"select columns of table \"Med_Appointments\""
+enum Med_Appointments_select_column {
+    "column name"
+    date
+    "column name"
+    doctor_id
+    "column name"
+    id
+    "column name"
+    location_id
+}
+
+"update columns of table \"Med_Appointments\""
+enum Med_Appointments_update_column {
+    "column name"
+    date
+    "column name"
+    doctor_id
+    "column name"
+    id
+    "column name"
+    location_id
+}
+
+"unique or primary key constraints on table \"Med_Doctor\""
+enum Med_Doctor_constraint {
+    "unique or primary key constraint on columns \"id\""
+    Med_Doctor_pkey
+}
+
+"select columns of table \"Med_Doctor\""
+enum Med_Doctor_select_column {
+    "column name"
+    friday_hours
+    "column name"
+    friday_location
+    "column name"
+    id
+    "column name"
+    monday_hours
+    "column name"
+    monday_location
+    "column name"
+    name
+    "column name"
+    specialization
+    "column name"
+    thursday_hours
+    "column name"
+    thursday_location
+    "column name"
+    tuesday_hours
+    "column name"
+    tuesday_location
+    "column name"
+    wednesday_hours
+    "column name"
+    wednesday_location
+}
+
+"update columns of table \"Med_Doctor\""
+enum Med_Doctor_update_column {
+    "column name"
+    friday_hours
+    "column name"
+    friday_location
+    "column name"
+    id
+    "column name"
+    monday_hours
+    "column name"
+    monday_location
+    "column name"
+    name
+    "column name"
+    specialization
+    "column name"
+    thursday_hours
+    "column name"
+    thursday_location
+    "column name"
+    tuesday_hours
+    "column name"
+    tuesday_location
+    "column name"
+    wednesday_hours
+    "column name"
+    wednesday_location
+}
+
+"unique or primary key constraints on table \"Med_Location\""
+enum Med_Location_constraint {
+    "unique or primary key constraint on columns \"id\""
+    Med_Location_pkey
+}
+
+"select columns of table \"Med_Location\""
+enum Med_Location_select_column {
+    "column name"
+    address_line_1
+    "column name"
+    address_line_2
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    name
+    "column name"
+    phone_number
+}
+
+"update columns of table \"Med_Location\""
+enum Med_Location_update_column {
+    "column name"
+    address_line_1
+    "column name"
+    address_line_2
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    name
+    "column name"
+    phone_number
+}
+
+"unique or primary key constraints on table \"Med_Pages\""
+enum Med_Pages_constraint {
+    "unique or primary key constraint on columns \"id\""
+    Med_Pages_pkey
+}
+
+"select columns of table \"Med_Pages\""
+enum Med_Pages_select_column {
+    "column name"
+    bg_color
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    img_link
+    "column name"
+    name
+    "column name"
+    order
+    "column name"
+    text_color
+}
+
+"update columns of table \"Med_Pages\""
+enum Med_Pages_update_column {
+    "column name"
+    bg_color
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    img_link
+    "column name"
+    name
+    "column name"
+    order
+    "column name"
+    text_color
+}
+
+"unique or primary key constraints on table \"Med_Reservation\""
+enum Med_Reservation_constraint {
+    "unique or primary key constraint on columns \"id\""
+    Med_Reservation_pkey
+}
+
+"select columns of table \"Med_Reservation\""
+enum Med_Reservation_select_column {
+    "column name"
+    appointment_id
+    "column name"
+    couse
+    "column name"
+    hour
+    "column name"
+    id
+    "column name"
+    is_reserved
+    "column name"
+    name
+    "column name"
+    patient_email
+    "column name"
+    patient_phone_num
+    "column name"
+    surname
+}
+
+"update columns of table \"Med_Reservation\""
+enum Med_Reservation_update_column {
+    "column name"
+    appointment_id
+    "column name"
+    couse
+    "column name"
+    hour
+    "column name"
+    id
+    "column name"
+    is_reserved
+    "column name"
+    name
+    "column name"
+    patient_email
+    "column name"
+    patient_phone_num
+    "column name"
+    surname
+}
+
+"column ordering options"
+enum order_by {
+    "in ascending order, nulls last"
+    asc
+    "in ascending order, nulls first"
+    asc_nulls_first
+    "in ascending order, nulls last"
+    asc_nulls_last
+    "in descending order, nulls first"
+    desc
+    "in descending order, nulls first"
+    desc_nulls_first
+    "in descending order, nulls last"
+    desc_nulls_last
+}
+
+scalar bigint
+
+scalar date
+
+input Boolean_cast_exp {
+    String: String_comparison_exp
+}
+
+"Boolean expression to compare columns of type \"Boolean\". All fields are combined with logical 'AND'."
+input Boolean_comparison_exp {
+    _cast: Boolean_cast_exp
+    _eq: Boolean
+    _gt: Boolean
+    _gte: Boolean
+    _in: [Boolean!]
+    _is_null: Boolean
+    _lt: Boolean
+    _lte: Boolean
+    _neq: Boolean
+    _nin: [Boolean!]
+}
+
+input Int_cast_exp {
+    String: String_comparison_exp
+}
+
+"Boolean expression to compare columns of type \"Int\". All fields are combined with logical 'AND'."
+input Int_comparison_exp {
+    _cast: Int_cast_exp
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
+}
+
+"Boolean expression to filter rows from the table \"Med_Appointments\". All fields are combined with a logical 'AND'."
+input Med_Appointments_bool_exp {
+    _and: [Med_Appointments_bool_exp!]
+    _not: Med_Appointments_bool_exp
+    _or: [Med_Appointments_bool_exp!]
+    date: date_comparison_exp
+    doctor: Med_Doctor_bool_exp
+    doctor_id: bigint_comparison_exp
+    id: bigint_comparison_exp
+    location: Med_Location_bool_exp
+    location_id: bigint_comparison_exp
+    reservations: Med_Reservation_bool_exp
+}
+
+"input type for incrementing numeric columns in table \"Med_Appointments\""
+input Med_Appointments_inc_input {
+    doctor_id: bigint
+    id: bigint
+    location_id: bigint
+}
+
+"input type for inserting data into table \"Med_Appointments\""
+input Med_Appointments_insert_input {
+    date: date
+    doctor: Med_Doctor_obj_rel_insert_input
+    doctor_id: bigint
+    id: bigint
+    location: Med_Location_obj_rel_insert_input
+    location_id: bigint
+    reservations: Med_Reservation_arr_rel_insert_input
+}
+
+"on_conflict condition type for table \"Med_Appointments\""
+input Med_Appointments_on_conflict {
+    constraint: Med_Appointments_constraint!
+    update_columns: [Med_Appointments_update_column!]! = []
+    where: Med_Appointments_bool_exp
+}
+
+"Ordering options when selecting data from \"Med_Appointments\"."
+input Med_Appointments_order_by {
+    date: order_by
+    doctor: Med_Doctor_order_by
+    doctor_id: order_by
+    id: order_by
+    location: Med_Location_order_by
+    location_id: order_by
+    reservations_aggregate: Med_Reservation_aggregate_order_by
+}
+
+"primary key columns input for table: Med_Appointments"
+input Med_Appointments_pk_columns_input {
+    id: bigint!
+}
+
+"input type for updating data in table \"Med_Appointments\""
+input Med_Appointments_set_input {
+    date: date
+    doctor_id: bigint
+    id: bigint
+    location_id: bigint
+}
+
+"Boolean expression to filter rows from the table \"Med_Doctor\". All fields are combined with a logical 'AND'."
+input Med_Doctor_bool_exp {
+    _and: [Med_Doctor_bool_exp!]
+    _not: Med_Doctor_bool_exp
+    _or: [Med_Doctor_bool_exp!]
+    friday_hours: String_comparison_exp
+    friday_location: String_comparison_exp
+    id: bigint_comparison_exp
+    monday_hours: String_comparison_exp
+    monday_location: String_comparison_exp
+    name: String_comparison_exp
+    specialization: String_comparison_exp
+    thursday_hours: String_comparison_exp
+    thursday_location: String_comparison_exp
+    tuesday_hours: String_comparison_exp
+    tuesday_location: String_comparison_exp
+    wednesday_hours: String_comparison_exp
+    wednesday_location: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"Med_Doctor\""
+input Med_Doctor_inc_input {
+    id: bigint
+}
+
+"input type for inserting data into table \"Med_Doctor\""
+input Med_Doctor_insert_input {
+    friday_hours: String
+    friday_location: String
+    id: bigint
+    monday_hours: String
+    monday_location: String
+    name: String
+    specialization: String
+    thursday_hours: String
+    thursday_location: String
+    tuesday_hours: String
+    tuesday_location: String
+    wednesday_hours: String
+    wednesday_location: String
+}
+
+"input type for inserting object relation for remote table \"Med_Doctor\""
+input Med_Doctor_obj_rel_insert_input {
+    data: Med_Doctor_insert_input!
+    "upsert condition"
+    on_conflict: Med_Doctor_on_conflict
+}
+
+"on_conflict condition type for table \"Med_Doctor\""
+input Med_Doctor_on_conflict {
+    constraint: Med_Doctor_constraint!
+    update_columns: [Med_Doctor_update_column!]! = []
+    where: Med_Doctor_bool_exp
+}
+
+"Ordering options when selecting data from \"Med_Doctor\"."
+input Med_Doctor_order_by {
+    friday_hours: order_by
+    friday_location: order_by
+    id: order_by
+    monday_hours: order_by
+    monday_location: order_by
+    name: order_by
+    specialization: order_by
+    thursday_hours: order_by
+    thursday_location: order_by
+    tuesday_hours: order_by
+    tuesday_location: order_by
+    wednesday_hours: order_by
+    wednesday_location: order_by
+}
+
+"primary key columns input for table: Med_Doctor"
+input Med_Doctor_pk_columns_input {
+    id: bigint!
+}
+
+"input type for updating data in table \"Med_Doctor\""
+input Med_Doctor_set_input {
+    friday_hours: String
+    friday_location: String
+    id: bigint
+    monday_hours: String
+    monday_location: String
+    name: String
+    specialization: String
+    thursday_hours: String
+    thursday_location: String
+    tuesday_hours: String
+    tuesday_location: String
+    wednesday_hours: String
+    wednesday_location: String
+}
+
+"Boolean expression to filter rows from the table \"Med_Location\". All fields are combined with a logical 'AND'."
+input Med_Location_bool_exp {
+    _and: [Med_Location_bool_exp!]
+    _not: Med_Location_bool_exp
+    _or: [Med_Location_bool_exp!]
+    address_line_1: String_comparison_exp
+    address_line_2: String_comparison_exp
+    description: String_comparison_exp
+    id: bigint_comparison_exp
+    name: String_comparison_exp
+    phone_number: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"Med_Location\""
+input Med_Location_inc_input {
+    id: bigint
+}
+
+"input type for inserting data into table \"Med_Location\""
+input Med_Location_insert_input {
+    address_line_1: String
+    address_line_2: String
+    description: String
+    id: bigint
+    name: String
+    phone_number: String
+}
+
+"input type for inserting object relation for remote table \"Med_Location\""
+input Med_Location_obj_rel_insert_input {
+    data: Med_Location_insert_input!
+    "upsert condition"
+    on_conflict: Med_Location_on_conflict
+}
+
+"on_conflict condition type for table \"Med_Location\""
+input Med_Location_on_conflict {
+    constraint: Med_Location_constraint!
+    update_columns: [Med_Location_update_column!]! = []
+    where: Med_Location_bool_exp
+}
+
+"Ordering options when selecting data from \"Med_Location\"."
+input Med_Location_order_by {
+    address_line_1: order_by
+    address_line_2: order_by
+    description: order_by
+    id: order_by
+    name: order_by
+    phone_number: order_by
+}
+
+"primary key columns input for table: Med_Location"
+input Med_Location_pk_columns_input {
+    id: bigint!
+}
+
+"input type for updating data in table \"Med_Location\""
+input Med_Location_set_input {
+    address_line_1: String
+    address_line_2: String
+    description: String
+    id: bigint
+    name: String
+    phone_number: String
+}
+
+"Boolean expression to filter rows from the table \"Med_Pages\". All fields are combined with a logical 'AND'."
+input Med_Pages_bool_exp {
+    _and: [Med_Pages_bool_exp!]
+    _not: Med_Pages_bool_exp
+    _or: [Med_Pages_bool_exp!]
+    bg_color: String_comparison_exp
+    description: String_comparison_exp
+    id: bigint_comparison_exp
+    img_link: String_comparison_exp
+    name: String_comparison_exp
+    order: Int_comparison_exp
+    text_color: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"Med_Pages\""
+input Med_Pages_inc_input {
+    id: bigint
+    order: Int
+}
+
+"input type for inserting data into table \"Med_Pages\""
+input Med_Pages_insert_input {
+    bg_color: String
+    description: String
+    id: bigint
+    img_link: String
+    name: String
+    order: Int
+    text_color: String
+}
+
+"on_conflict condition type for table \"Med_Pages\""
+input Med_Pages_on_conflict {
+    constraint: Med_Pages_constraint!
+    update_columns: [Med_Pages_update_column!]! = []
+    where: Med_Pages_bool_exp
+}
+
+"Ordering options when selecting data from \"Med_Pages\"."
+input Med_Pages_order_by {
+    bg_color: order_by
+    description: order_by
+    id: order_by
+    img_link: order_by
+    name: order_by
+    order: order_by
+    text_color: order_by
+}
+
+"primary key columns input for table: Med_Pages"
+input Med_Pages_pk_columns_input {
+    id: bigint!
+}
+
+"input type for updating data in table \"Med_Pages\""
+input Med_Pages_set_input {
+    bg_color: String
+    description: String
+    id: bigint
+    img_link: String
+    name: String
+    order: Int
+    text_color: String
+}
+
+"order by aggregate values of table \"Med_Reservation\""
+input Med_Reservation_aggregate_order_by {
+    avg: Med_Reservation_avg_order_by
+    count: order_by
+    max: Med_Reservation_max_order_by
+    min: Med_Reservation_min_order_by
+    stddev: Med_Reservation_stddev_order_by
+    stddev_pop: Med_Reservation_stddev_pop_order_by
+    stddev_samp: Med_Reservation_stddev_samp_order_by
+    sum: Med_Reservation_sum_order_by
+    var_pop: Med_Reservation_var_pop_order_by
+    var_samp: Med_Reservation_var_samp_order_by
+    variance: Med_Reservation_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"Med_Reservation\""
+input Med_Reservation_arr_rel_insert_input {
+    data: [Med_Reservation_insert_input!]!
+    "upsert condition"
+    on_conflict: Med_Reservation_on_conflict
+}
+
+"order by avg() on columns of table \"Med_Reservation\""
+input Med_Reservation_avg_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"Boolean expression to filter rows from the table \"Med_Reservation\". All fields are combined with a logical 'AND'."
+input Med_Reservation_bool_exp {
+    _and: [Med_Reservation_bool_exp!]
+    _not: Med_Reservation_bool_exp
+    _or: [Med_Reservation_bool_exp!]
+    appointment_id: bigint_comparison_exp
+    couse: String_comparison_exp
+    hour: String_comparison_exp
+    id: bigint_comparison_exp
+    is_reserved: Boolean_comparison_exp
+    name: String_comparison_exp
+    patient_email: String_comparison_exp
+    patient_phone_num: String_comparison_exp
+    surname: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"Med_Reservation\""
+input Med_Reservation_inc_input {
+    appointment_id: bigint
+    id: bigint
+}
+
+"input type for inserting data into table \"Med_Reservation\""
+input Med_Reservation_insert_input {
+    appointment_id: bigint
+    couse: String
+    hour: String
+    id: bigint
+    is_reserved: Boolean
+    name: String
+    patient_email: String
+    patient_phone_num: String
+    surname: String
+}
+
+"order by max() on columns of table \"Med_Reservation\""
+input Med_Reservation_max_order_by {
+    appointment_id: order_by
+    couse: order_by
+    hour: order_by
+    id: order_by
+    name: order_by
+    patient_email: order_by
+    patient_phone_num: order_by
+    surname: order_by
+}
+
+"order by min() on columns of table \"Med_Reservation\""
+input Med_Reservation_min_order_by {
+    appointment_id: order_by
+    couse: order_by
+    hour: order_by
+    id: order_by
+    name: order_by
+    patient_email: order_by
+    patient_phone_num: order_by
+    surname: order_by
+}
+
+"on_conflict condition type for table \"Med_Reservation\""
+input Med_Reservation_on_conflict {
+    constraint: Med_Reservation_constraint!
+    update_columns: [Med_Reservation_update_column!]! = []
+    where: Med_Reservation_bool_exp
+}
+
+"Ordering options when selecting data from \"Med_Reservation\"."
+input Med_Reservation_order_by {
+    appointment_id: order_by
+    couse: order_by
+    hour: order_by
+    id: order_by
+    is_reserved: order_by
+    name: order_by
+    patient_email: order_by
+    patient_phone_num: order_by
+    surname: order_by
+}
+
+"primary key columns input for table: Med_Reservation"
+input Med_Reservation_pk_columns_input {
+    id: bigint!
+}
+
+"input type for updating data in table \"Med_Reservation\""
+input Med_Reservation_set_input {
+    appointment_id: bigint
+    couse: String
+    hour: String
+    id: bigint
+    is_reserved: Boolean
+    name: String
+    patient_email: String
+    patient_phone_num: String
+    surname: String
+}
+
+"order by stddev() on columns of table \"Med_Reservation\""
+input Med_Reservation_stddev_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"order by stddev_pop() on columns of table \"Med_Reservation\""
+input Med_Reservation_stddev_pop_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"order by stddev_samp() on columns of table \"Med_Reservation\""
+input Med_Reservation_stddev_samp_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"order by sum() on columns of table \"Med_Reservation\""
+input Med_Reservation_sum_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"order by var_pop() on columns of table \"Med_Reservation\""
+input Med_Reservation_var_pop_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"order by var_samp() on columns of table \"Med_Reservation\""
+input Med_Reservation_var_samp_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"order by variance() on columns of table \"Med_Reservation\""
+input Med_Reservation_variance_order_by {
+    appointment_id: order_by
+    id: order_by
+}
+
+"Boolean expression to compare columns of type \"String\". All fields are combined with logical 'AND'."
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    "does the column match the given case-insensitive pattern"
+    _ilike: String
+    _in: [String!]
+    "does the column match the given POSIX regular expression, case insensitive"
+    _iregex: String
+    _is_null: Boolean
+    "does the column match the given pattern"
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    "does the column NOT match the given case-insensitive pattern"
+    _nilike: String
+    _nin: [String!]
+    "does the column NOT match the given POSIX regular expression, case insensitive"
+    _niregex: String
+    "does the column NOT match the given pattern"
+    _nlike: String
+    "does the column NOT match the given POSIX regular expression, case sensitive"
+    _nregex: String
+    "does the column NOT match the given SQL regular expression"
+    _nsimilar: String
+    "does the column match the given POSIX regular expression, case sensitive"
+    _regex: String
+    "does the column match the given SQL regular expression"
+    _similar: String
+}
+
+input bigint_cast_exp {
+    String: String_comparison_exp
+}
+
+"Boolean expression to compare columns of type \"bigint\". All fields are combined with logical 'AND'."
+input bigint_comparison_exp {
+    _cast: bigint_cast_exp
+    _eq: bigint
+    _gt: bigint
+    _gte: bigint
+    _in: [bigint!]
+    _is_null: Boolean
+    _lt: bigint
+    _lte: bigint
+    _neq: bigint
+    _nin: [bigint!]
+}
+
+input date_cast_exp {
+    String: String_comparison_exp
+}
+
+"Boolean expression to compare columns of type \"date\". All fields are combined with logical 'AND'."
+input date_comparison_exp {
+    _cast: date_cast_exp
+    _eq: date
+    _gt: date
+    _gte: date
+    _in: [date!]
+    _is_null: Boolean
+    _lt: date
+    _lte: date
+    _neq: date
+    _nin: [date!]
+}
