@@ -1,3 +1,78 @@
 {
-  "TEST": "a"
+  "title": "Med - Demo",
+  "start": "Start",
+  "locations": "Nasze placówki",
+  "employees": "Nasi pracownicy",
+  "doctors": "Nasi lekarze",
+  "dates": "Terminy wizyt",
+  "reserveADate": "Umów wizytę",
+  "common": {
+    "infoLine1": "Wybierz jedną z naszych placówek",
+    "infoLine2": "lub zadzwoń pod numer",
+    "infoLine3": "+48 123 456 789",
+    "infoLine4": "aby umówić wizytę",
+    "monday": "Poniedziałek",
+    "tuesday": "Wtorek",
+    "wednesday": "Środa",
+    "thursday": "Czwartek",
+    "friday": "Piątek",
+    "submit": "Potwierdź",
+    "cancel": "Anuluj",
+    "saving": "Zapisywanie..."
+  },
+  "startPage": {
+    "checkOurLocations": "Sprawdź nasze placówki",
+    "openLocations": "Pokaż placówki",
+    "checkOurDoctors": "Poznaj naszych specjalistów",
+    "openDoctors": "Pokaż specjalistów",
+    "checkOurDates": "Sprawdź dostępne terminy wizyt",
+    "openDates": "Wyświetl terminarz wizyt"
+  },
+  "locationsPage": {
+    "openDates": "Wyświetl terminy wizyt",
+    "address": "Adres placówki"
+  },
+  "appointmentsPage": {
+    "availableDates": "Dostępne terminy",
+    "location": "Placówka",
+    "locationHint": "Wybierz placówkę, aby przefiltorwać listę badań",
+    "doctor": "Lekarz",
+    "doctorHint": "Wybierz lekarza, aby przefiltorwać listę badań",
+    "hour": "Godz."
+  },
+  "reservationPage": {
+    "reservation": "Rezerwacja wizyty",
+    "location": "Placówka",
+    "doctor": "Lekarz",
+    "date": "Data",
+    "hour": "Godzina",
+    "patientInfo": "Dane pacjenta",
+    "name": "Imię",
+    "surname": "Nazwisko",
+    "email": "Adres email",
+    "phoneNum": "Numer telefonu",
+    "reason": "Powód wizyty",
+    "reasonHint": "Wypełnienie poniżeszego pola nie jest wymagane, informacja o celu wizyty pozwoli lekarzowi na lepsze przygotowanie się przed wizytą",
+    "acceptTerms": "Akceptuję warunki regulaminu",
+    "terms": "Regulamin korzystania z serwisu",
+    "reserve": "Zarezerwuj termin",
+    "fieldRequired": "Pole wymagane",
+    "incorrectEmail": "Niepoprawny adres email",
+    "incorrectPhone": "Niepoprawny numer telefonu. Przykładowy poprawny numer telefonu: +48 123456789",
+    "confirmation": "Potwierdzenie rezerwacji",
+    "confirmationInfo": "Czy na pewno chcesz potwierdzić rezerwację i wprowadzone dane?"
+  },
+  "termsPage": {
+    "terms": "Warunki korzystania"
+  },
+  "confirmationPage": {
+    "confirmationInfo": "Termin wizyty został pomyślnie zarezerwowany",
+    "reservationNum": "Numer rezerwacji: #",
+    "details": "Szczegóły rezerwacji",
+    "location": "Placówka",
+    "doctor": "Lekarz",
+    "date": "Data",
+    "hour": "Godzina wizyty",
+    "backToStart": "Wróć do strony startowej"
+  }
 }

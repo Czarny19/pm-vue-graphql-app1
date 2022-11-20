@@ -1,3 +1,5 @@
+@import "./src/assets/styles/abstracts/variables";
+
 #app {
   font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -9,4 +11,37 @@
 
 .v-main {
   height: 100%;
+}
+
+.bg-color {
+  background-color: $background !important;
+}
+
+.primary-color {
+  color: $primary !important;
+}
+
+.accent-color {
+  color: $accent !important;
+}
+
+.info-color {
+  color: $info !important;
+}
+
+.text1 {
+  color: #090909FF !important;
+}
+
+.text2 {
+  color: #4D4D4DFF !important;
+}
+
+.divider {
+  background-color: #0E7917FF;
+  border-width: 1px !important;
+}
+
+.title-text {
+  font-size: 22pt;
 }
